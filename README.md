@@ -1,5 +1,5 @@
 # ConsoleSFSample
- A sample system for ScenarioFlow with the debug console.
+ A sample system for ScenarioFlow using the debug console.
 
 ![](./Movies/ExampleA.gif)
 
