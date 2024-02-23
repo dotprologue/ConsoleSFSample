@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks.Linq;
 using ScenarioFlow;
 using ScenarioFlow.Scripts;
 using ScenarioFlow.Tasks;
+using System;
 using UnityEngine;
 
 namespace ConsoleSFSample
@@ -20,6 +21,9 @@ namespace ConsoleSFSample
             INextNotifier nextNotifier = enterKeyNotifier;
             ICancellationNotifier cancellationNotifier = enterKeyNotifier;
             ScenarioTaskExecutor scenarioTaskExecutor = new ScenarioTaskExecutor(nextNotifier, cancellationNotifier);
+
+            IDisposable disposable = scenarioTaskExecutor;
+            disposable.AddTo(this.GetCancellationTokenOnDestroy());
 
             IScenarioTaskExecutor scenarioTaskExecutorInterface = scenarioTaskExecutor;
             ScenarioBookReader scenarioBookReader = new ScenarioBookReader(scenarioTaskExecutorInterface);
